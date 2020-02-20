@@ -20,13 +20,13 @@ expressApp.get('/health', (req, res) => {
 });
 
 expressApp.post('/netlify-hook', jsonParser, (req, res) => {
-    console.log(req.body);
+    console.log(req.body.test);
     telegram.sendMessage(process.env.CHANNEL_ID, "test", Extra.markup(keyboard));
-    res.status(200)
+    res.json({status: "ok"})
 });
 
 expressApp.listen(port, () => {
-    console.log('Example app listening on port 3000!')
+    console.log('Server starting on port ' + port)
 });
 
 
