@@ -1,0 +1,90 @@
+{
+  "id": "5e4e9ec933e945d2a7be1f2e",
+  "site_id": "d51b252f-b108-4cbe-9511-ac2773c3345f",
+  "build_id": "5e4e9ec933e945d2a7be1f2f",
+  "state": "ready",
+  "name": "nepal-allyouneedtoknow",
+  "url": "https://nepal.allyouneedtoknow.tips",
+  "ssl_url": "https://nepal.allyouneedtoknow.tips",
+  "admin_url": "https://app.netlify.com/sites/nepal-allyouneedtoknow",
+  "deploy_url": "http://5e4e9ec933e945d2a7be1f2e.nepal-allyouneedtoknow.netlify.com",
+  "deploy_ssl_url": "https://5e4e9ec933e945d2a7be1f2e--nepal-allyouneedtoknow.netlify.com",
+  "created_at": "2020-02-20T14:59:21.766Z",
+  "updated_at": "2020-02-20T14:59:47.421Z",
+  "user_id": "5e16331d7a376ac11ed6cfb2",
+  "error_message": null,
+  "required": [],
+  "required_functions": [],
+  "commit_ref": null,
+  "review_id": null,
+  "branch": "master",
+  "commit_url": null,
+  "skipped": null,
+  "locked": null,
+  "log_access_attributes": {
+    "type": "firebase",
+    "url": "https://netlify-builds2.firebaseio.com/builds/5e4e9ec933e945d2a7be1f2f/log",
+    "endpoint": "https://netlify-builds2.firebaseio.com",
+    "path": "/builds/5e4e9ec933e945d2a7be1f2f/log",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2IjowLCJpYXQiOjE1ODIyMTA3ODcsImQiOnsidWlkIjoiIn19.c_nZIT6xWKweFjOt0QN2kjQkotq4qmzAsg8jHj1GBj8"
+  },
+  "title": null,
+  "review_url": null,
+  "published_at": "2020-02-20T14:59:47.262Z",
+  "context": "production",
+  "deploy_time": 23,
+  "available_functions": [],
+  "summary": {
+    "status": "ready",
+    "messages": [
+      [
+        "Object"
+      ],
+      [
+        "Object"
+      ],
+      [
+        "Object"
+      ],
+      [
+        "Object"
+      ]
+    ]
+  },
+  "screenshot_url": null,
+  "site_capabilities": {
+    "title": "Netlify Team Free",
+    "asset_acceleration": true,
+    "form_processing": true,
+    "cdn_propagation": "partial",
+    "build_gc_exchange": "buildbot-gc",
+    "build_node_pool": "buildbot-external-ssd",
+    "domain_aliases": true,
+    "secure_site": false,
+    "prerendering": true,
+    "proxying": true,
+    "ssl": "custom",
+    "rate_cents": 0,
+    "yearly_rate_cents": 0,
+    "cdn_network": "free_cdn_network",
+    "ipv6_domain": "cdn.makerloop.com",
+    "branch_deploy": true,
+    "managed_dns": true,
+    "geo_ip": true,
+    "split_testing": true,
+    "id": "nf_team_dev",
+    "cdn_tier": "reg",
+    "forms": {
+      "submissions": [
+        "Object"
+      ],
+      "storage": [
+        "Object"
+      ]
+    }
+  },
+  "committer": null,
+  "skipped_log": null,
+  "manual_deploy": false,
+  "file_tracking_optimization": false
+}

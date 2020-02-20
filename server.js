@@ -10,16 +10,23 @@ const jsonParser = bodyParser.json();
 
 const telegram = new Telegram(process.env.TELEGRAM_TOKEN);
 
-const keyboard = Markup.inlineKeyboard([
-    Markup.urlButton('❤️', 'http://telegraf.js.org'),
-    Markup.callbackButton('Delete', 'delete')
-]);
-
 expressApp.get('/health', (req, res) => {
     res.send('Status: OK')
 });
 
-expressApp.post('/netlify-hook', jsonParser, (req, res) => {
+expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, (req, res) => {
+    console.log(req.body);
+    res.json({status: "ok"});
+    telegram.sendMessage(process.env.CHANNEL_ID, "Deploy succeeded");
+});
+
+expressApp.post('/netlify-hook/deploy/failed', jsonParser, (req, res) => {
+    console.log(req.body);
+    res.json({status: "ok"});
+    telegram.sendMessage(process.env.CHANNEL_ID, "Deploy failed");
+});
+
+expressApp.post('/netlify-hook/form', jsonParser, (req, res) => {
     console.log(req.body);
     res.json({status: "ok"});
     telegram.sendMessage(process.env.CHANNEL_ID, "test");
