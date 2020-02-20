@@ -5,3 +5,7 @@ module.exports.replaceAll = function (str, mapObj) {
         return mapObj[matched.toLowerCase()];
     });
 };
+
+module.exports.normalize = function (str) {
+    return str.replace("https://", "");
+};

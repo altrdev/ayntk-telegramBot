@@ -20,7 +20,7 @@ expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
-        "{{site}}": req.body.url,
+        "{{site}}": Utility.normalize(req.body.url),
         "{{user}}": req.body.committer,
     };
 
@@ -31,7 +31,7 @@ expressApp.post('/netlify-hook/deploy/failed', jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
-        "{{site}}": req.body.url,
+        "{{site}}": Utility.normalize(req.body.url),
         "{{message}}": req.body.error_message,
         "{{user}}": req.body.committer,
     };
@@ -43,12 +43,12 @@ expressApp.post('/netlify-hook/form', jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
-        "{{site}}": req.body.site_url,
+        "{{site}}": Utility.normalize(req.body.site_url),
         "{{sender_name}}": req.body.data.name,
         "{{message}}": req.body.data.message,
     };
 
-    telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.deployFailedMessage, mapObj), Extra.markdown());
+    telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.formMessage, mapObj), Extra.markdown());
 });
 
 expressApp.listen(port, () => {
