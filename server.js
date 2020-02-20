@@ -20,9 +20,9 @@ expressApp.get('/health', (req, res) => {
 });
 
 expressApp.post('/netlify-hook', jsonParser, (req, res) => {
-    console.log(req.body.test);
-    res.json({status: "ok"})
-    telegram.sendMessage(process.env.CHANNEL_ID, "test", Extra.markup(keyboard));
+    console.log(req.body);
+    res.json({status: "ok"});
+    telegram.sendMessage(process.env.CHANNEL_ID, "test");
 });
 
 expressApp.listen(port, () => {
