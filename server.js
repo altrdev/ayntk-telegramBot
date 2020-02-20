@@ -3,6 +3,7 @@ const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
 const express = require('express');
 const expressApp = express();
+const port = process.env.PORT || 3000;
 
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
@@ -24,7 +25,7 @@ expressApp.post('/netlify-hook', jsonParser, (req, res) => {
     res.status(200)
 });
 
-expressApp.listen(3000, () => {
+expressApp.listen(port, () => {
     console.log('Example app listening on port 3000!')
 });
 
