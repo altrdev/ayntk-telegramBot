@@ -21,8 +21,7 @@ expressApp.get('/health', (req, res) => {
 
 expressApp.post('/netlify-hook', jsonParser, (req, res) => {
     console.log(req.body);
-
-    telegram.sendCopy(process.env.CHANNEL_ID, ctx.message, Extra.markup(keyboard));
+    telegram.sendMessage(process.env.CHANNEL_ID, "test", Extra.markup(keyboard));
     res.status(200)
 });
 
