@@ -1,3 +1,5 @@
 {
-  "deploySucceededMessage": "Deploy *succeeded* for \n{{site}}"
+  "deploySucceededMessage": "✅️Deploy *succeeded* for \n{{site}}",
+  "deployFailedMessage": "❌️Deploy *failed* for \n{{site}} \n*Error message*: {{message}}",
+  "formMessage": "\uD83D\uDCE5New message for \n{{site}} \n\uD83D\uDC64*From*: {{sender_name}} \n✍️*Message*: {{message}}"
 }
