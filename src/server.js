@@ -1,6 +1,7 @@
 const Telegram = require('telegraf/telegram');
 const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
+const utility = require('utility');
 const express = require('express');
 const expressApp = express();
 const port = process.env.PORT || 3000;
@@ -17,7 +18,12 @@ expressApp.get('/health', (req, res) => {
 expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, (req, res) => {
     console.log(req.body);
     res.json({status: "ok"});
-    telegram.sendMessage(process.env.CHANNEL_ID, "Deploy succeeded");
+
+    const mapObj = {
+        "{{site}}": req.body.url,
+    };
+
+    telegram.sendMessage(process.env.CHANNEL_ID, utility.replaceAll(utility.deploySucceededMessage, mapObj), Extra.markdown());
 });
 
 expressApp.post('/netlify-hook/deploy/failed', jsonParser, (req, res) => {
