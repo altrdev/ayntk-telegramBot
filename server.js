@@ -1,5 +1,4 @@
-import {Telegram} from "telegraf";
-
+const Telegram = require('telegraf/telegram');
 const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
 const express = require('express');
