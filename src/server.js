@@ -12,11 +12,12 @@ const jsonParser = bodyParser.json();
 
 const telegram = new Telegram(process.env.TELEGRAM_TOKEN);
 
+
 expressApp.get('/health', (req, res) => {
     res.send('Status: OK')
 });
 
-expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, (req, res) => {
+expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, Utility.checkJWS, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
@@ -27,7 +28,7 @@ expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, (req, res) => {
     telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.deploySucceededMessage, mapObj), Extra.markdown());
 });
 
-expressApp.post('/netlify-hook/deploy/failed', jsonParser, (req, res) => {
+expressApp.post('/netlify-hook/deploy/failed', jsonParser, Utility.checkJWS, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
@@ -39,7 +40,7 @@ expressApp.post('/netlify-hook/deploy/failed', jsonParser, (req, res) => {
     telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.deployFailedMessage, mapObj), Extra.markdown());
 });
 
-expressApp.post('/netlify-hook/form', jsonParser, (req, res) => {
+expressApp.post('/netlify-hook/form', jsonParser, Utility.checkJWS, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
