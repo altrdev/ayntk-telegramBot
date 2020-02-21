@@ -1,23 +1,19 @@
 const Telegram = require('telegraf/telegram');
 const Extra = require('telegraf/extra');
-const Markup = require('telegraf/markup');
 const Utility = require('./utility');
 const config = require('./config.json');
 const express = require('express');
 const expressApp = express();
 const port = process.env.PORT || 3000;
-
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-
 const telegram = new Telegram(process.env.TELEGRAM_TOKEN);
-
 
 expressApp.get('/health', (req, res) => {
     res.send('Status: OK')
 });
 
-expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, Utility.checkJWS, (req, res) => {
+expressApp.post('/netlify-hook/deploy/succeeded', Utility.checkJWS, jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
@@ -28,7 +24,7 @@ expressApp.post('/netlify-hook/deploy/succeeded', jsonParser, Utility.checkJWS, 
     telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.deploySucceededMessage, mapObj), Extra.markdown());
 });
 
-expressApp.post('/netlify-hook/deploy/failed', jsonParser, Utility.checkJWS, (req, res) => {
+expressApp.post('/netlify-hook/deploy/failed', Utility.checkJWS, jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {
@@ -40,7 +36,7 @@ expressApp.post('/netlify-hook/deploy/failed', jsonParser, Utility.checkJWS, (re
     telegram.sendMessage(process.env.CHANNEL_ID, Utility.replaceAll(config.deployFailedMessage, mapObj), Extra.markdown());
 });
 
-expressApp.post('/netlify-hook/form', jsonParser, Utility.checkJWS, (req, res) => {
+expressApp.post('/netlify-hook/form', Utility.checkJWS, jsonParser, (req, res) => {
     res.json({status: "ok"});
 
     const mapObj = {

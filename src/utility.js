@@ -15,10 +15,15 @@ module.exports.normalize = function (str) {
 
 module.exports.checkJWS = function checkJWS(req, res, next) {
     try {
-        jwt.verify(req.header("X-Webhook-Signature"), process.env.JWS_SECRET || "secret", netlifyOptions);
+        jwt.verify(
+            req.header("X-Webhook-Signature"),
+            process.env.JWS_SECRET || "secret",
+            netlifyOptions
+        );
+
         next()
     } catch(err) {
-        console.log(err)
+        console.log(err);
         res.status(401).json({status: "ko", message: "Auth failed"});
     }
 };
