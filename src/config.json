@@ -1,5 +1,5 @@
 {
-  "deploySucceededMessage": "✅️Deploy *succeeded* for {{site}} \n\n\uD83D\uDC64*Committer*: {{user}}",
-  "deployFailedMessage": "❌️Deploy *failed* for {{site}} \n\n\uD83D\uDC64*Committer*: {{user}} \n*Error message*: {{message}}",
-  "formMessage": "\uD83D\uDCE5New message for {{site}} \n\n\uD83D\uDC64*From*: {{sender_name}} \n\n✍️*Message*: {{message}}"
+  "deploySucceededMessage": "✅️ Deploy *succeeded* for {{site}} \n\n\uD83D\uDC64 *Committer*: {{user}}",
+  "deployFailedMessage": "❌️ Deploy *failed* for {{site}} \n\n\uD83D\uDC64 *Committer*: {{user}} \n✍ *Error message*: {{message}}",
+  "formMessage": "\uD83D\uDCE5 *New message* for {{site}} \n\n\uD83D\uDC64 *From*: {{sender_name}} \n✍️*Message*: {{message}}"
 }
